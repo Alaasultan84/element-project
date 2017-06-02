@@ -1,5 +1,5 @@
-# Basic Project
-## Basic Project Structure
+# Element Project
+## Element Project Structure
 
 *Default Structure for A Basic Project*
 
