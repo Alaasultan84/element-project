@@ -13,18 +13,18 @@ public abstract class BasicTest extends Core {
 		super(baseUrl, null);
 	}
 
-	@BeforeClass(enabled = true)
-	public void setUp() throws Exception {
-		setDriver(new FirefoxDriver());
-		// this.baseUrl = "http://www.ebay.com/";
-		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		getDriver().get(getBaseUrl());
-	}
-
 	@BeforeClass(enabled = false)
 	public void setUpChrome() throws Exception {
 		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 		setDriver(new ChromeDriver());
+		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		getDriver().get(getBaseUrl());
+	}
+
+	@BeforeClass(enabled = true)
+	public void setUpFirefox() throws Exception {
+		setDriver(new FirefoxDriver());
+		// this.baseUrl = "http://www.ebay.com/";
 		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		getDriver().get(getBaseUrl());
 	}
@@ -41,4 +41,11 @@ public abstract class BasicTest extends Core {
 	// public void tearDown() throws Exception {
 	// getDriver().quit();
 	// }
+
+	/**
+	 * @throws Exception
+	 */
+	public void tearDown() throws Exception {
+		getDriver().quit();
+	}
 }

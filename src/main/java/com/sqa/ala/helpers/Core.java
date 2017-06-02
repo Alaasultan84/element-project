@@ -44,8 +44,7 @@ public class Core {
 	}
 
 	public boolean takeScreenshot() {
-		boolean takes = false;
-		AutoBasics.takeScreenShot(getDriver(), "screenshots\\", "Auto Test " + this.curItem, getLog());
+		boolean takes = AutoBasics.takeScreenShot(getDriver(), "screenshots\\", "Auto Test " + this.curItem, getLog());
 		this.curItem++;
 		return takes;
 	}
